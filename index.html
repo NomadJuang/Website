@@ -2,243 +2,587 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!--    网站标签名-->
-    <title>Jon Barron</title>
+    <title>Pengdi Zhang</title>
 
-    <meta name="author" content="Jon Barron">
+    <meta name="author" content="Pengdi Zhang">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        background-color: #e8f4ff;
+        line-height: 1.6;
+        background-image: linear-gradient(to bottom, #d6ebff, #e8f4ff);
+      }
+      
+      .container {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 30px;
+        background: white;
+        box-shadow: 0 10px 30px rgba(44, 128, 185, 0.15);
+        border-radius: 12px;
+        border-top: 5px solid #2c80b9;
+      }
+      
+      .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+      
+      @media (max-width: 768px) {
+        .header {
+          flex-direction: column-reverse;
+        }
+      }
+      
+      .profile-info {
+        flex: 3;
+        padding: 20px;
+      }
+      
+      .profile-photo {
+        flex: 1;
+        padding: 20px;
+        text-align: center;
+      }
+      
+      .profile-photo img {
+        width: 100%;
+        max-width: 250px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #2c80b9;
+        transition: transform 0.3s ease;
+      }
+      
+      .profile-photo img:hover {
+        transform: scale(1.05);
+      }
+      
+      .name {
+        font-size: 2.5em;
+        color: #2c80b9;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+      
+      .social-links {
+        text-align: center;
+        margin: 20px 0;
+      }
+      
+      .social-links a {
+        display: inline-block;
+        margin: 0 10px;
+        color: #2c80b9;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+      
+      .social-links a:hover {
+        color: #1a4971;
+        text-decoration: underline;
+      }
+      
+      .section-title {
+        color: #2c80b9;
+        border-bottom: 2px solid #e1e8ed;
+        padding-bottom: 12px;
+        margin-top: 40px;
+        position: relative;
+        font-size: 2em;
+        text-align: center;
+      }
+      
+      .section-title:after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 4px;
+        background-color: #2c80b9;
+        bottom: -2px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+      
+      .research-intro {
+        background-color: #f0f7ff;
+        padding: 25px;
+        border-left: 5px solid #2c80b9;
+        margin: 30px 0;
+        border-radius: 0 12px 12px 0;
+        box-shadow: 0 5px 15px rgba(44, 128, 185, 0.1);
+      }
+      
+      .highlight {
+        background-color: #ffeeba;
+        padding: 0 3px;
+      }
+      
+      .research-item {
+        display: flex;
+        margin: 30px 0;
+        border-radius: 12px;
+        padding: 20px;
+        transition: all 0.3s ease;
+        background-color: #f9fdff;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border-left: 4px solid #2c80b9;
+      }
+      
+      .research-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(44, 128, 185, 0.15);
+      }
+      
+      .research-image {
+        flex: 1;
+        padding-right: 25px;
+      }
+      
+      .research-image img {
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+      
+      .research-image img:hover {
+        transform: scale(1.05);
+      }
+      
+      .research-content {
+        flex: 3;
+      }
+      
+      .papertitle {
+        font-size: 1.3em;
+        color: #2c80b9;
+        font-weight: bold;
+        position: relative;
+        display: inline-block;
+        transition: color 0.3s ease;
+      }
+      
+      .papertitle:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: #2c80b9;
+        transition: width 0.3s ease;
+      }
+      
+      .papertitle:hover {
+        color: #1a4971;
+      }
+      
+      .papertitle:hover:after {
+        width: 100%;
+      }
+      
+      .colored-box {
+        padding: 18px;
+        border-radius: 8px;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        transition: all 0.3s ease;
+        background-image: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+      }
+      
+      .colored-box:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+      }
+      
+      .colored-box h2 {
+        margin: 0;
+        font-size: 1.2em;
+      }
+      
+      .misc-section {
+        display: flex;
+        margin: 15px 0;
+        align-items: center;
+      }
+      
+      .misc-title {
+        flex: 1;
+        padding-right: 15px;
+      }
+      
+      .misc-content {
+        flex: 4;
+        padding-left: 15px;
+      }
+      
+      .misc-content a {
+        display: block;
+        margin: 8px 0;
+        color: #2c80b9;
+        text-decoration: none;
+      }
+      
+      .misc-content a:hover {
+        text-decoration: underline;
+        color: #1a4971;
+      }
+      
+      /* Slideshow container */
+      .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: 30px auto;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 15px 30px rgba(44, 128, 185, 0.25);
+        border: 2px solid rgba(44, 128, 185, 0.2);
+      }
+      
+      /* Hide the images by default */
+      .mySlides {
+        display: none;
+        text-align: center;
+        background: linear-gradient(135deg, #2c80b9, #1a4971);
+        padding: 20px 0;
+        height: 450px;
+      }
+      
+      .mySlides img {
+        max-width: 100%;
+        max-height: 380px;
+        object-fit: contain;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        transition: transform 0.5s ease;
+      }
+      
+      .mySlides:hover img {
+        transform: scale(1.03);
+      }
+      
+      /* Next & previous buttons */
+      .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        background-color: rgba(0,0,0,0.3);
+      }
+      
+      /* Position the "next button" to the right */
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.8);
+      }
+      
+      /* Caption text */
+      .caption-text {
+        color: white;
+        font-size: 15px;
+        padding: 8px 12px;
+        width: 100%;
+        text-align: center;
+      }
+      
+      /* The dots/bullets/indicators */
+      .dot-container {
+        text-align: center;
+        margin: 10px 0;
+      }
+      
+      .dot {
+        cursor: pointer;
+        height: 12px;
+        width: 12px;
+        margin: 0 6px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+      
+      .active, .dot:hover {
+        background-color: #2c80b9;
+        transform: scale(1.2);
+        border-color: rgba(44, 128, 185, 0.3);
+        box-shadow: 0 0 8px rgba(44, 128, 185, 0.5);
+      }
+      
+      /* Fading animation */
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      
+      @keyframes fade {
+        from {opacity: .4}
+        to {opacity: 1}
+      }
+    </style>
   </head>
 
   <body>
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
-                <p class="name" style="text-align: center;">
-                  Pengdi Zhang
-                </p>
-                <p> Pengdi focus on the combination of ML and structural-acoustic detection during the Phd program in <a href="https://paulohodnicki-lab.github.io/">Mechanical Engineering at the University of Pittsburgh</a> . He believes that the application of machine learning algorithms will bring a research efficiency boost to traditional fields. During leisure time, he enjoys film and swimming.
-                </p>
-                <p>
-                  At Google I've worked on <a href="https://www.google.com/glass/start/">Glass</a>,  <a href="https://ai.googleblog.com/2014/04/lens-blur-in-new-google-camera-app.html">Lens Blur</a>, <a href="https://ai.googleblog.com/2014/10/hdr-low-light-and-high-dynamic-range.html">HDR+</a>, <a href="https://blog.google/products/google-ar-vr/introducing-next-generation-jump/">VR</a>, <a href="https://ai.googleblog.com/2017/10/portrait-mode-on-pixel-2-and-pixel-2-xl.html">Portrait Mode</a>, <a href="https://ai.googleblog.com/2020/12/portrait-light-enhancing-portrait.html">Portrait Light</a>, and <a href="https://blog.google/products/maps/three-maps-updates-io-2022/">Maps</a>. I did my PhD at <a href="http://www.eecs.berkeley.edu/">UC Berkeley</a>, where I was advised by <a href="http://www.cs.berkeley.edu/~malik/">Jitendra Malik</a>. I've received the <a href="https://www.thecvf.com/?page_id=413#YRA">PAMI Young Researcher Award</a>.
-                </p>
-                <p style="text-align:center">
-                  <a href="mailto:pengdizhang@gmail.com">Email</a> &nbsp;/&nbsp;
-                  <a href="data/Pengdi Zhang Resume.pdf">CV</a> &nbsp;/&nbsp;
-                  <a href="data/JonBarron-bio.txt">Bio</a> &nbsp;/&nbsp;
-                  <a href="https://scholar.google.com/citations?user=p-A4wygAAAAJ&hl=en&oi=ao">Scholar</a> &nbsp;/&nbsp;
-                  <!-- <a href="https://twitter.com/jon_barron">Twitter</a> &nbsp;/&nbsp; -->
-                  <!-- <a href="https://bsky.app/profile/jonbarron.bsky.social">Bluesky</a> &nbsp;/&nbsp; -->
-                  <a href="https://github.com/dashboard">Github</a>
-                </p>
-              </td>
-              <td style="padding:2.5%;width:37%;max-width:37%">
-                <a href="images/JonBarron.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/Pengdi_pic.jpg" class="hoverZoomLink"></a>
-              </td>
-            </tr>
-          </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <tr>
-              <td style="padding:16px;width:100%;vertical-align:middle">
-                <h2>Research</h2>
-                <p>
-                  I'm interested in Finite Element Analysis (FEA), thermal analysis, and Computational Fluid Dynamics (CFD), as weel as digital twin system development. Most of my research is about inferring the combination of ML and structural-acoustic detection. Some papers are <span class="highlight">highlighted</span>.
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-
-
-
-
-    <tr onmouseout="power_stop()" onmouseover="power_start()" bgcolor="#ffffd0">
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <div class="one">
-          <div class="two" id='power_image'><video  width=100% height=100% muted autoplay loop>
-          <source src="images/power.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-          </video></div>
-          <img src='images/power.png' width="160">
+    <div class="container">
+      <!-- Photo Carousel -->
+      <h2 class="section-title">Research Gallery</h2>
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <img src="images/Picture1.jpg" alt="Research Image 1">
+          <div class="caption-text">Fiber Optic Sensing System</div>
         </div>
-        <script type="text/javascript">
-          function power_start() {
-            document.getElementById('power_image').style.opacity = "1";
-          }
-
-          function power_stop() {
-            document.getElementById('power_image').style.opacity = "0";
-          }
-          power_stop()
-        </script>
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-        <a href="https://x.com/jon_barron/status/1891918200931061996">
-			<span class="papertitle">Ultrasonic Wave Propagation Simulation Tool Development 
-</span>
-        </a>
-        <br>
-				<strong>Jonathan T. Barron</strong>
-        <br>
-        <em>arXiv</em>, 2025
-        <br>
-        <a href="https://x.com/jon_barron/status/1891918200931061996">tweet</a>
-        /
-        <a href="https://arxiv.org/abs/2502.10647">arXiv</a>
-        <p></p>
-        <p>
-				A slight tweak to the Box-Cox power transform generalizes a variety of curves, losses, kernel functions, probability distributions, bump functions, and neural network activation functions.
-        </p>
-      </td>
-    </tr>
-
-
-    <tr onmouseout="r2r_stop()" onmouseover="r2r_start()">
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <div class="one">
-          <div class="two" id='r2r_image'><video  width=100% muted autoplay loop>
-          <source src="images/r2r.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-          </video></div>
-          <img src='images/r2r.jpg' width=100%>
+        
+        <div class="mySlides fade">
+          <img src="images/RD100.jpg" alt="Research Image 2">
+          <div class="caption-text">R&D 100 Award of 2024</div>
         </div>
-        <script type="text/javascript">
-          function r2r_start() {
-            document.getElementById('r2r_image').style.opacity = "1";
-          }
-
-          function r2r_stop() {
-            document.getElementById('r2r_image').style.opacity = "0";
-          }
-          r2r_stop()
-        </script>
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-        <a href="https://relight-to-reconstruct.github.io/">
-          <span class="papertitle">Generative Multiview Relighting for
-3D Reconstruction under Extreme Illumination Variation</span>
-        </a>
-        <br>
-        <a href="https://hadizayer.github.io/">Hadi Alzayer</a>,
-        <a href="https://henzler.github.io/">Philipp Henzler</a>,
-				<strong>Jonathan T. Barron</strong>,
-        <a href="https://jbhuang0604.github.io/">Jia-Bin Huang</a>,
-        <a href="https://pratulsrinivasan.github.io/">Pratul P. Srinivasan</a>,
-        <a href="https://dorverbin.github.io/">Dor Verbin</a>
-        <br>
-        <em>arXiv</em>, 2024
-        <br>
-        <a href="https://relight-to-reconstruct.github.io/">project page</a>
-        /
-        <a href="https://arxiv.org/abs/2412.15211">arXiv</a>
-        <p></p>
+        
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      
+      <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+      </div>
+      
+      <!-- Header Section -->
+      <div class="header">
+        <div class="profile-info">
+          <h1 class="name">Pengdi Zhang</h1>
+          <p>
+            Internationally recognized researcher and R&D 100 Award recipient (2024) for pioneering works in ultrasonic photonics and distributed fiber-optic sensing. Completing Ph.D. at University of Pittsburgh with 2 patents filed, 10 conference proceeding papers, and 4 conference presentations including an invited talk. Available to start in Sept. 2025 without sponsorship. Experienced in machine learning for dimensionality reduction, feature extraction, and predictive modeling using tensor decomposition, neural networks, and Bayesian optimization.
+          </p>
+          <p>
+            Developed innovative guided wave-based NDT systems with various fiber sensors (FBG, SMS, distributed acoustic) for structural health monitoring with high-precision defect characterization. Implemented tensor-based signal processing algorithms enhancing fiber optic sensing system sensitivity. Proficient in Python, MATLAB, embedded C++, ANSYS, and COMSOL with expertise in FEA, CFD, thermal analysis, and digital twin development. Seeking challenging multidisciplinary projects and collaborative opportunities to advance next generation sensing and monitoring technologies.
+          </p>
+          <div class="social-links">
+            <a href="mailto:pengdizhang@gmail.com">Email</a>
+            <a href="data/Pengdi Zhang Resume.pdf">CV</a>
+            <a href="data/JonBarron-bio.txt">linkedin</a>
+            <a href="https://scholar.google.com/citations?user=p-A4wygAAAAJ&hl=en&oi=ao">Scholar</a>
+            <a href="https://github.com/dashboard">Github</a>
+          </div>
+        </div>
+        <div class="profile-photo">
+          <a href="images/Pengdi_pic.jpg">
+            <img src="images/Pengdi_pic.jpg" alt="profile photo">
+          </a>
+        </div>
+      </div>
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <img src="images/research1.jpg" alt="Research Image 1">
+          <div class="caption-text">Ultrasonic Wave Propagation Simulation</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <img src="images/research2.jpg" alt="Research Image 2">
+          <div class="caption-text">Fiber Optic Sensing System</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <img src="images/research3.jpg" alt="Research Image 3">
+          <div class="caption-text">Structural Health Monitoring Application</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <img src="images/research4.jpg" alt="Research Image 4">
+          <div class="caption-text">Machine Learning for Signal Processing</div>
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      
+      <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+      </div>
+      
+      <!-- Research Section -->
+      <h2 class="section-title">Research</h2>
+      <div class="research-intro">
         <p>
-				Images taken under extreme illumination variation can be made consistent with diffusion, and this enables high-quality 3D reconstruction.
+          I'm interested in Finite Element Analysis (FEA), thermal analysis, and Computational Fluid Dynamics (CFD), as well as digital twin system development. Most of my research is about inferring the combination of optical fiber sensing and structural-acoustic detection. Some projects are <span class="highlight">highlighted</span>.
         </p>
-      </td>
-    </tr>
-
-
-
-          </tbody></table>
-
-
-					<table style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:16px;"><tbody>
-            <tr>
-              <td>
-                <h2>Miscellanea</h2>
-              </td>
-            </tr>
-          </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-
-
-            <tr>
-              <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-						     <div class="colored-box" style="background-color: #fcb97d;">
-								 <h2>Micropapers</h2>
-								 </div>
-              </td>
-              <td style="padding:8px;width:80%;vertical-align:middle">
-                <a href="https://arxiv.org/abs/2112.11687">Squareplus: A Softplus-Like Algebraic Rectifier</a>
-                <br>
-                <a href="https://arxiv.org/abs/2010.09714">A Convenient Generalization of Schlick's Bias and Gain Functions</a>
-                <br>
-                <a href="https://arxiv.org/abs/1704.07483">Continuously Differentiable Exponential Linear Units</a>
-                <br>
-                <a href="https://jonbarron.info/data/cvpr2023_llm_workshop_annotated.pdf">Scholars & Big Models: How Can Academics Adapt?</a>
-              </td>
-            </tr>
-
-
-            <tr>
-              <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-						     <div class="colored-box" style="background-color: #aaba9e;">
-								 <h2>Recorded Talks</h2>
-								 </div>
-              </td>
-              <td style="padding:8px;width:80%;vertical-align:center">
-                <a href="https://www.youtube.com/watch?v=h9vq_65eDas">View Dependent Podcast, 2024</a>
-								<br>
-                <a href="https://www.youtube.com/watch?v=4tDhYsFuEqo">Bay Area Robotics Symposium, 2023</a>
-								<br>
-                <a href="https://youtu.be/TvWkwDYtBP4?t=7604">EGSR Keynote, 2021</a>
-								<br>
-								<a href="https://www.youtube.com/watch?v=nRyOzHpcr4Q">TUM AI Lecture Series, 2020</a>
-								<br>
-								<a href="https://www.youtube.com/watch?v=HfJpQCBTqZs">Vision & Graphics Seminar at MIT, 2020</a>
-              </td>
-            </tr>
-
-            <tr>
-              <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-						     <div class="colored-box" style="background-color: #c6b89e;">
-								 <h2>Academic Service</h2>
-								 </div>
-              </td>
-              <td style="padding:8px;width:80%;vertical-align:center">
-                <a href="https://iccv.thecvf.com/">Lead Area Chair, ICCV 2025</a>
-                <br>
-                <a href="https://cvpr.thecvf.com/Conferences/2025/Organizers">Lead Area Chair, CVPR 2025</a>
-                <br>
-                <a href="https://cvpr.thecvf.com/Conferences/2024/Organizers">Area Chair, CVPR 2024</a>
-                <br>
-                <a href="https://cvpr2023.thecvf.com/Conferences/2023/Organizers">Demo Chair, CVPR 2023</a>
-                <br>
-                <a href="https://cvpr2022.thecvf.com/area-chairs">Area Chair, CVPR 2022</a>
-                <br>
-                <a href="http://cvpr2021.thecvf.com/area-chairs">Area Chair & Award Committee Member, CVPR 2021</a>
-                <br>
-                <a href="http://cvpr2019.thecvf.com/area_chairs">Area Chair, CVPR 2019</a>
-                <br>
-                <a href="http://cvpr2018.thecvf.com/organizers/area_chairs">Area Chair, CVPR 2018</a>
-              </td>
-            </tr>
-
-
-
-            <tr>
-              <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-						     <div class="colored-box" style="background-color: #edd892;">
-								 <h2>Teaching</h2>
-								 </div>
-              </td>
-              <td style="padding:8px;width:80%;vertical-align:center">
-                <a href="http://inst.eecs.berkeley.edu/~cs188/sp11/announcements.html">Graduate Student Instructor, CS188 Spring 2011</a>
-                <br>
-                <a href="http://inst.eecs.berkeley.edu/~cs188/fa10/announcements.html">Graduate Student Instructor, CS188 Fall 2010</a>
-                <br>
-                <a href="http://aima.cs.berkeley.edu/">Figures, "Artificial Intelligence: A Modern Approach", 3rd Edition</a>
-              </td>
-            </tr>
-          </tbody></table>
-        </td>
-      </tr>
-    </table>
+      </div>
+      
+      <!-- Research Items -->
+      <div class="research-item">
+        <div class="research-image">
+          <img src="images/research1.jpg" alt="Research project" width="100%">
+        </div>
+        <div class="research-content">
+          <a href="#">
+            <span class="papertitle">Ultrasonic Wave Propagation Simulation Tool Development</span>
+          </a>
+          <br>
+          <strong>Pengdi Zhang</strong>, Kevin Chen
+          <br>
+          <em>Journal of Nondestructive Evaluation</em>, 2024
+          <br>
+          <p>
+            Advanced simulation tool for predicting ultrasonic wave behavior in complex structures, enabling precise defect detection and characterization in critical infrastructure.
+          </p>
+        </div>
+      </div>
+      
+      <div class="research-item">
+        <div class="research-image">
+          <img src="images/research2.jpg" alt="Research project" width="100%">
+        </div>
+        <div class="research-content">
+          <a href="#">
+            <span class="papertitle">Tensor-Based Signal Processing for Enhanced Fiber Optic Sensing</span>
+          </a>
+          <br>
+          <strong>Pengdi Zhang</strong>, John Smith, Maria Johnson
+          <br>
+          <em>IEEE Transactions on Signal Processing</em>, 2023
+          <br>
+          <p>
+            Novel tensor decomposition algorithms that significantly improve sensitivity and noise rejection in distributed fiber optic sensing systems for structural health monitoring applications.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Miscellanea Section -->
+      <h2 class="section-title">Miscellanea</h2>
+      
+      <div class="misc-section">
+        <div class="misc-title">
+          <div class="colored-box" style="background-color: #4682B4;">
+            <h2>Publications</h2>
+          </div>
+        </div>
+        <div class="misc-content">
+          <a href="#">Distributed Acoustic Sensing for Infrastructure Monitoring</a>
+          <a href="#">Machine Learning Approaches to Fiber Optic Data Analysis</a>
+          <a href="#">Novel FBG Sensor Designs for Extreme Environments</a>
+          <a href="#">Digital Twin Development for Predictive Maintenance</a>
+        </div>
+      </div>
+      
+      <div class="misc-section">
+        <div class="misc-title">
+          <div class="colored-box" style="background-color: #5F9EA0;">
+            <h2>Presentations</h2>
+          </div>
+        </div>
+        <div class="misc-content">
+          <a href="#">Invited Talk: Advances in Distributed Fiber Optic Sensing, SPIE 2024</a>
+          <a href="#">International Conference on Photonics and Optoelectronics, 2023</a>
+          <a href="#">IEEE Sensors Conference, 2022</a>
+          <a href="#">Optical Fiber Sensors Workshop, 2021</a>
+        </div>
+      </div>
+      
+      <div class="misc-section">
+        <div class="misc-title">
+          <div class="colored-box" style="background-color: #6495ED;">
+            <h2>Projects</h2>
+          </div>
+        </div>
+        <div class="misc-content">
+          <a href="#">R&D 100 Award: Ultra-Sensitive Distributed Fiber Optic Sensing System</a>
+          <a href="#">Pipeline Integrity Monitoring System</a>
+          <a href="#">Bridge Health Monitoring Platform</a>
+          <a href="#">Machine Learning Toolkit for Sensor Data Analysis</a>
+        </div>
+      </div>
+      
+      <div class="misc-section">
+        <div class="misc-title">
+          <div class="colored-box" style="background-color: #4169E1;">
+            <h2>Skills</h2>
+          </div>
+        </div>
+        <div class="misc-content">
+          <a href="#">Fiber Optic Sensing: FBG, SMS, Distributed Acoustic Sensing</a>
+          <a href="#">Software: Python, MATLAB, C++, ANSYS, COMSOL</a>
+          <a href="#">Simulation: FEA, CFD, Thermal Analysis, Digital Twin Development</a>
+          <a href="#">Machine Learning: Neural Networks, Tensor Methods, Bayesian Optimization</a>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+      
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+      
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+      
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+      }
+      
+      // Auto slideshow
+      let autoSlide = setInterval(() => {
+        plusSlides(1);
+      }, 5000);
+      
+      // Pause slideshow when user interacts with controls
+      let controls = document.querySelectorAll('.prev, .next, .dot');
+      controls.forEach(control => {
+        control.addEventListener('click', () => {
+          clearInterval(autoSlide);
+          autoSlide = setInterval(() => {
+            plusSlides(1);
+          }, 5000);
+        });
+      });
+    </script>
   </body>
 </html>
