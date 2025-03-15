@@ -8,24 +8,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <style>
+      :root {
+        /* New color palette */
+        --primary: #3a6ea5;
+        --primary-dark: #004e8c;
+        --primary-light: #6a9ed4;
+        --secondary: #ff6b35;
+        --accent: #f7c59f;
+        --light-bg: #f0f6ff;
+        --white: #ffffff;
+        --dark-text: #2d3142;
+        --light-text: #4f5d75;
+        --highlight: #ffe0b5;
+      }
+      
       body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0;
         padding: 0;
-        color: #333;
-        background-color: #e8f4ff;
+        color: var(--dark-text);
+        background-color: var(--light-bg);
         line-height: 1.6;
-        background-image: linear-gradient(to bottom, #d6ebff, #e8f4ff);
+        background-image: linear-gradient(to bottom, var(--light-bg), #ffffff);
       }
       
       .container {
         max-width: 1000px;
         margin: 40px auto;
         padding: 30px;
-        background: white;
-        box-shadow: 0 10px 30px rgba(44, 128, 185, 0.15);
+        background: var(--white);
+        box-shadow: 0 10px 30px rgba(58, 110, 165, 0.15);
         border-radius: 12px;
-        border-top: 5px solid #2c80b9;
+        border-top: 5px solid var(--primary);
       }
       
       .header {
@@ -35,6 +49,13 @@
         justify-content: space-between;
         margin-bottom: 30px;
         flex-wrap: wrap;
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 30px;
+        background: var(--white);
+        box-shadow: 0 10px 30px rgba(58, 110, 165, 0.15);
+        border-radius: 12px;
+        border-top: 5px solid var(--primary);
       }
       
       @media (max-width: 768px) {
@@ -59,17 +80,18 @@
         max-width: 250px;
         border-radius: 50%;
         object-fit: cover;
-        border: 4px solid #2c80b9;
-        transition: transform 0.3s ease;
+        border: 4px solid var(--primary);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
       
       .profile-photo img:hover {
         transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(58, 110, 165, 0.25);
       }
       
       .name {
         font-size: 2.5em;
-        color: #2c80b9;
+        color: var(--primary);
         margin-bottom: 15px;
         text-align: center;
       }
@@ -82,19 +104,22 @@
       .social-links a {
         display: inline-block;
         margin: 0 10px;
-        color: #2c80b9;
+        color: var(--primary);
         text-decoration: none;
         font-weight: 500;
         transition: color 0.3s;
+        padding: 5px 12px;
+        border-radius: 4px;
+        background-color: rgba(58, 110, 165, 0.1);
       }
       
       .social-links a:hover {
-        color: #1a4971;
-        text-decoration: underline;
+        color: var(--primary-dark);
+        background-color: rgba(58, 110, 165, 0.2);
       }
       
       .section-title {
-        color: #2c80b9;
+        color: var(--primary);
         border-bottom: 2px solid #e1e8ed;
         padding-bottom: 12px;
         margin-top: 40px;
@@ -108,7 +133,7 @@
         position: absolute;
         width: 100px;
         height: 4px;
-        background-color: #2c80b9;
+        background-color: var(--secondary);
         bottom: -2px;
         left: 50%;
         transform: translateX(-50%);
@@ -116,17 +141,18 @@
       }
       
       .research-intro {
-        background-color: #f0f7ff;
+        background-color: var(--light-bg);
         padding: 25px;
-        border-left: 5px solid #2c80b9;
+        border-left: 5px solid var(--primary);
         margin: 30px 0;
         border-radius: 0 12px 12px 0;
-        box-shadow: 0 5px 15px rgba(44, 128, 185, 0.1);
+        box-shadow: 0 5px 15px rgba(58, 110, 165, 0.1);
       }
       
       .highlight {
-        background-color: #ffeeba;
+        background-color: var(--highlight);
         padding: 0 3px;
+        border-radius: 3px;
       }
       
       .research-item {
@@ -135,14 +161,14 @@
         border-radius: 12px;
         padding: 20px;
         transition: all 0.3s ease;
-        background-color: #f9fdff;
+        background-color: var(--light-bg);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        border-left: 4px solid #2c80b9;
+        border-left: 4px solid var(--primary);
       }
       
       .research-item:hover {
         transform: translateY(-5px);
-        box-shadow: 0 12px 30px rgba(44, 128, 185, 0.15);
+        box-shadow: 0 12px 30px rgba(58, 110, 165, 0.15);
       }
       
       .research-image {
@@ -154,6 +180,7 @@
         border-radius: 8px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease;
+        width: 100%;
       }
       
       .research-image img:hover {
@@ -166,7 +193,7 @@
       
       .papertitle {
         font-size: 1.3em;
-        color: #2c80b9;
+        color: var(--primary);
         font-weight: bold;
         position: relative;
         display: inline-block;
@@ -180,12 +207,12 @@
         height: 2px;
         bottom: -2px;
         left: 0;
-        background-color: #2c80b9;
+        background-color: var(--secondary);
         transition: width 0.3s ease;
       }
       
       .papertitle:hover {
-        color: #1a4971;
+        color: var(--primary-dark);
       }
       
       .papertitle:hover:after {
@@ -232,13 +259,17 @@
       .misc-content a {
         display: block;
         margin: 8px 0;
-        color: #2c80b9;
+        color: var(--primary);
         text-decoration: none;
+        transition: all 0.3s ease;
+        padding: 8px;
+        border-radius: 4px;
       }
       
       .misc-content a:hover {
-        text-decoration: underline;
-        color: #1a4971;
+        background-color: var(--light-bg);
+        padding-left: 15px;
+        color: var(--primary-dark);
       }
       
       /* Slideshow container */
@@ -248,15 +279,15 @@
         margin: 30px auto;
         overflow: hidden;
         border-radius: 12px;
-        box-shadow: 0 15px 30px rgba(44, 128, 185, 0.25);
-        border: 2px solid rgba(44, 128, 185, 0.2);
+        box-shadow: 0 15px 30px rgba(58, 110, 165, 0.25);
+        border: 2px solid rgba(58, 110, 165, 0.2);
       }
       
       /* Hide the images by default */
       .mySlides {
         display: none;
         text-align: center;
-        background: linear-gradient(135deg, #2c80b9, #1a4971);
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
         padding: 20px 0;
         height: 450px;
       }
@@ -330,10 +361,10 @@
       }
       
       .active, .dot:hover {
-        background-color: #2c80b9;
+        background-color: var(--secondary);
         transform: scale(1.2);
-        border-color: rgba(44, 128, 185, 0.3);
-        box-shadow: 0 0 8px rgba(44, 128, 185, 0.5);
+        border-color: rgba(255, 107, 53, 0.3);
+        box-shadow: 0 0 8px rgba(255, 107, 53, 0.5);
       }
       
       /* Fading animation */
@@ -350,57 +381,23 @@
   </head>
 
   <body>
-    <div class="container">
-      <!-- Photo Carousel -->
-      <h2 class="section-title">Research Gallery</h2>
-      <div class="slideshow-container">
-        <div class="mySlides fade">
-          <img src="images/Picture1.jpg" alt="Research Image 1">
-          <div class="caption-text">Fiber Optic Sensing System</div>
-        </div>
-        
-        <div class="mySlides fade">
-          <img src="images/RD100.jpg" alt="Research Image 2">
-          <div class="caption-text">R&D 100 Award of 2024</div>
-        </div>
-
-        <div class="mySlides fade">
-          <img src="images/RD100.jpg" alt="Research Image 2">
-          <div class="caption-text">R&D 100 Award of 2024</div>
-        </div>
-
-        <div class="mySlides fade">
-          <img src="images/RD100.jpg" alt="Research Image 2">
-          <div class="caption-text">R&D 100 Award of 2024</div>
-        </div>
-        
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-      </div>
-      
-      <div class="dot-container">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-        <span class="dot" onclick="currentSlide(4)"></span>
-      </div>
-      
       <!-- Header Section -->
       <div class="header">
         <div class="profile-info">
           <h1 class="name">Pengdi Zhang</h1>
           <p>
-            Internationally recognized researcher and R&D 100 Award recipient (2024) for pioneering works in ultrasonic photonics and distributed fiber-optic sensing. Completing Ph.D. at University of Pittsburgh with 2 patents filed, 10 conference proceeding papers, and 4 conference presentations including an invited talk. Available to start in Sept. 2025 without sponsorship. Experienced in machine learning for dimensionality reduction, feature extraction, and predictive modeling using tensor decomposition, neural networks, and Bayesian optimization.
+            Internationally recognized researcher and <a href="https://www.linkedin.com/feed/update/urn:li:activity:7227522732177981440/">R&D 100 Award</a> recipient (2024) for pioneering works in ultrasonic photonics and distributed fiber-optic sensing. Completing Ph.D. at University of Pittsburgh with 2 <a href="https://patentscope.wipo.int/search/en/detail.jsf;jsessionid=645948801168D6075E6DAEE3E32594E2.wapp2nC?docId=WO2024206395&_cid=P22-M2251B-60029-40">patents</a> filed, 10 conference proceeding papers, and 4 conference presentations including an <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13044/130440J/Investigation-of-data-augmentation-techniques-for-ultrasonic-acoustic-fiber-sensing/10.1117/12.3013996.short">invited talk</a>. Available to start in Sept. 2025 without sponsorship. Experienced in machine learning for dimensionality reduction, feature extraction, and predictive modeling using tensor decomposition, neural networks, and Bayesian optimization.
           </p>
           <p>
             Developed innovative guided wave-based NDT systems with various fiber sensors (FBG, SMS, distributed acoustic) for structural health monitoring with high-precision defect characterization. Implemented tensor-based signal processing algorithms enhancing fiber optic sensing system sensitivity. Proficient in Python, MATLAB, embedded C++, ANSYS, and COMSOL with expertise in FEA, CFD, thermal analysis, and digital twin development. Seeking challenging multidisciplinary projects and collaborative opportunities to advance next generation sensing and monitoring technologies.
           </p>
           <div class="social-links">
             <a href="mailto:pengdizhang@gmail.com">Email</a>
-            <a href="data/Pengdi Zhang Resume.pdf">CV</a>
-            <a href="data/JonBarron-bio.txt">linkedin</a>
+            <a href="data/PengdiZhang Resume.pdf">Resume</a>
+            <a href="data/PengdiZhang_CV.pdf">CV</a>
+            <a href="https://www.linkedin.com/in/pengdi-zhang">LinkedIn</a>
             <a href="https://scholar.google.com/citations?user=p-A4wygAAAAJ&hl=en&oi=ao">Scholar</a>
-            <a href="https://github.com/dashboard">Github</a>
+            <!--<a href="https://github.com/dashboard">Github</a>-->
           </div>
         </div>
         <div class="profile-photo">
@@ -409,147 +406,148 @@
           </a>
         </div>
       </div>
-      <div class="slideshow-container">
-        <div class="mySlides fade">
-          <img src="images/research1.jpg" alt="Research Image 1">
-          <div class="caption-text">Ultrasonic Wave Propagation Simulation</div>
-        </div>
-        
-        <div class="mySlides fade">
-          <img src="images/research2.jpg" alt="Research Image 2">
-          <div class="caption-text">Fiber Optic Sensing System</div>
-        </div>
-        
-        <div class="mySlides fade">
-          <img src="images/research3.jpg" alt="Research Image 3">
-          <div class="caption-text">Structural Health Monitoring Application</div>
-        </div>
-        
-        <div class="mySlides fade">
-          <img src="images/research4.jpg" alt="Research Image 4">
-          <div class="caption-text">Machine Learning for Signal Processing</div>
-        </div>
-        
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-      </div>
-      
-      <div class="dot-container">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-        <span class="dot" onclick="currentSlide(4)"></span>
-      </div>
-      
-      <!-- Research Section -->
-      <h2 class="section-title">Research</h2>
-      <div class="research-intro">
-        <p>
-          I'm interested in Finite Element Analysis (FEA), thermal analysis, and Computational Fluid Dynamics (CFD), as well as digital twin system development. Most of my research is about inferring the combination of optical fiber sensing and structural-acoustic detection. Some projects are <span class="highlight">highlighted</span>.
-        </p>
-      </div>
-      
-<!--  
-       Research Items
-      <div class="research-item">
-        <div class="research-image">
-          <img src="images/research1.jpg" alt="Research project" width="100%">
-        </div>
-        <div class="research-content">
-          <a href="#">
-            <span class="papertitle">Ultrasonic Wave Propagation Simulation Tool Development</span>
-          </a>
-          <br>
-          <strong>Pengdi Zhang</strong>, Kevin Chen
-          <br>
-          <em>Journal of Nondestructive Evaluation</em>, 2024
-          <br>
-          <p>
-            Advanced simulation tool for predicting ultrasonic wave behavior in complex structures, enabling precise defect detection and characterization in critical infrastructure.
-          </p>
-        </div>
-      </div>
-      
-      <div class="research-item">
-        <div class="research-image">
-          <img src="images/research2.jpg" alt="Research project" width="100%">
-        </div>
-        <div class="research-content">
-          <a href="#">
-            <span class="papertitle">Tensor-Based Signal Processing for Enhanced Fiber Optic Sensing</span>
-          </a>
-          <br>
-          <strong>Pengdi Zhang</strong>, John Smith, Maria Johnson
-          <br>
-          <em>IEEE Transactions on Signal Processing</em>, 2023
-          <br>
-          <p>
-            Novel tensor decomposition algorithms that significantly improve sensitivity and noise rejection in distributed fiber optic sensing systems for structural health monitoring applications.
-          </p>
-        </div>
-      </div>
--->
 
-      <!-- Miscellanea Section 
-      <h2 class="section-title">Miscellanea</h2>
+      <div class="container">
+        <!-- Photo Carousel -->
+        <h2 class="section-title">Research Gallery</h2>
+        <div class="slideshow-container">
+          <div class="mySlides fade">
+            <img src="images/Picture1.jpg" alt="Research Image 1">
+            <div class="caption-text">Fiber Optic Sensing System</div>
+          </div>
+          
+          <div class="mySlides fade">
+            <img src="images/RD100.jpg" alt="Research Image 2">
+            <div class="caption-text">R&D 100 Award of 2024</div>
+          </div>
+  
+          <div class="mySlides fade">
+            <img src="images/RD100.jpg" alt="Research Image 3">
+            <div class="caption-text">Ultrasonic Wave Simulation</div>
+          </div>
+  
+          <div class="mySlides fade">
+            <img src="images/RD100.jpg" alt="Research Image 4">
+            <div class="caption-text">Structural Health Monitoring System</div>
+          </div>
+          
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        
+        <div class="dot-container">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
       
-      <div class="misc-section">
-        <div class="misc-title">
-          <div class="colored-box" style="background-color: #4682B4;">
-            <h2>Publications</h2>
+        <!-- Research Section -->
+        <h2 class="section-title">Research</h2>
+        <div class="research-intro">
+          <p>
+            I'm interested in Finite Element Analysis (FEA), thermal analysis, and Computational Fluid Dynamics (CFD), as well as digital twin system development. Most of my research is about inferring the combination of optical fiber sensing and structural-acoustic detection. Some projects are <span class="highlight">highlighted</span>.
+          </p>
+        </div>
+      
+        <!-- Research Items -->
+        <div class="research-item">
+          <div class="research-image">
+            <img src="images/research1.jpg" alt="Research project">
+          </div>
+          <div class="research-content">
+            <a href="#">
+              <span class="papertitle">Ultrasonic Wave Propagation Simulation Tool Development</span>
+            </a>
+            <br>
+            <strong>Pengdi Zhang</strong>, Kevin Chen
+            <br>
+            <em>Journal of Nondestructive Evaluation</em>, 2024
+            <br>
+            <p>
+              Advanced simulation tool for predicting ultrasonic wave behavior in complex structures, enabling precise defect detection and characterization in critical infrastructure.
+            </p>
           </div>
         </div>
-        <div class="misc-content">
-          <a href="#">Distributed Acoustic Sensing for Infrastructure Monitoring</a>
-          <a href="#">Machine Learning Approaches to Fiber Optic Data Analysis</a>
-          <a href="#">Novel FBG Sensor Designs for Extreme Environments</a>
-          <a href="#">Digital Twin Development for Predictive Maintenance</a>
-        </div>
-      </div>
-      
-      <div class="misc-section">
-        <div class="misc-title">
-          <div class="colored-box" style="background-color: #5F9EA0;">
-            <h2>Presentations</h2>
+        
+        <div class="research-item">
+          <div class="research-image">
+            <img src="images/research2.jpg" alt="Research project">
+          </div>
+          <div class="research-content">
+            <a href="#">
+              <span class="papertitle">Tensor-Based Signal Processing for Enhanced Fiber Optic Sensing</span>
+            </a>
+            <br>
+            <strong>Pengdi Zhang</strong>, John Smith, Maria Johnson
+            <br>
+            <em>IEEE Transactions on Signal Processing</em>, 2023
+            <br>
+            <p>
+              Novel tensor decomposition algorithms that significantly improve sensitivity and noise rejection in distributed fiber optic sensing systems for structural health monitoring applications.
+            </p>
           </div>
         </div>
-        <div class="misc-content">
-          <a href="#">Invited Talk: Advances in Distributed Fiber Optic Sensing, SPIE 2024</a>
-          <a href="#">International Conference on Photonics and Optoelectronics, 2023</a>
-          <a href="#">IEEE Sensors Conference, 2022</a>
-          <a href="#">Optical Fiber Sensors Workshop, 2021</a>
-        </div>
-      </div>
-      
-      <div class="misc-section">
-        <div class="misc-title">
-          <div class="colored-box" style="background-color: #6495ED;">
-            <h2>Projects</h2>
+<!---Miscellanea Section
+        <h2 class="section-title">Miscellanea</h2>
+        
+        <div class="misc-section">
+          <div class="misc-title">
+            <div class="colored-box" style="background-color: var(--primary);">
+              <h2>Publications</h2>
+            </div>
+          </div>
+          <div class="misc-content">
+            <a href="#">Distributed Acoustic Sensing for Infrastructure Monitoring</a>
+            <a href="#">Machine Learning Approaches to Fiber Optic Data Analysis</a>
+            <a href="#">Novel FBG Sensor Designs for Extreme Environments</a>
+            <a href="#">Digital Twin Development for Predictive Maintenance</a>
           </div>
         </div>
-        <div class="misc-content">
-          <a href="#">R&D 100 Award: Ultra-Sensitive Distributed Fiber Optic Sensing System</a>
-          <a href="#">Pipeline Integrity Monitoring System</a>
-          <a href="#">Bridge Health Monitoring Platform</a>
-          <a href="#">Machine Learning Toolkit for Sensor Data Analysis</a>
-        </div>
-      </div>
-      
-      <div class="misc-section">
-        <div class="misc-title">
-          <div class="colored-box" style="background-color: #4169E1;">
-            <h2>Skills</h2>
+        
+        <div class="misc-section">
+          <div class="misc-title">
+            <div class="colored-box" style="background-color: var(--primary-light);">
+              <h2>Presentations</h2>
+            </div>
+          </div>
+          <div class="misc-content">
+            <a href="#">Invited Talk: Advances in Distributed Fiber Optic Sensing, SPIE 2024</a>
+            <a href="#">International Conference on Photonics and Optoelectronics, 2023</a>
+            <a href="#">IEEE Sensors Conference, 2022</a>
+            <a href="#">Optical Fiber Sensors Workshop, 2021</a>
           </div>
         </div>
-        <div class="misc-content">
-          <a href="#">Fiber Optic Sensing: FBG, SMS, Distributed Acoustic Sensing</a>
-          <a href="#">Software: Python, MATLAB, C++, ANSYS, COMSOL</a>
-          <a href="#">Simulation: FEA, CFD, Thermal Analysis, Digital Twin Development</a>
-          <a href="#">Machine Learning: Neural Networks, Tensor Methods, Bayesian Optimization</a>
+        
+        <div class="misc-section">
+          <div class="misc-title">
+            <div class="colored-box" style="background-color: var(--secondary);">
+              <h2>Projects</h2>
+            </div>
+          </div>
+          <div class="misc-content">
+            <a href="#">R&D 100 Award: Ultra-Sensitive Distributed Fiber Optic Sensing System</a>
+            <a href="#">Pipeline Integrity Monitoring System</a>
+            <a href="#">Bridge Health Monitoring Platform</a>
+            <a href="#">Machine Learning Toolkit for Sensor Data Analysis</a>
+          </div>
+        </div>
+        
+        <div class="misc-section">
+          <div class="misc-title">
+            <div class="colored-box" style="background-color: var(--primary-dark);">
+              <h2>Skills</h2>
+            </div>
+          </div>
+          <div class="misc-content">
+            <a href="#">Fiber Optic Sensing: FBG, SMS, Distributed Acoustic Sensing</a>
+            <a href="#">Software: Python, MATLAB, C++, ANSYS, COMSOL</a>
+            <a href="#">Simulation: FEA, CFD, Thermal Analysis, Digital Twin Development</a>
+            <a href="#">Machine Learning: Neural Networks, Tensor Methods, Bayesian Optimization</a>
+          </div>
         </div>
       </div>
-    </div>
--->
+-->       
     <script>
       let slideIndex = 1;
       showSlides(slideIndex);
