@@ -1,610 +1,251 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Pengdi Zhang</title>
-
-    <meta name="author" content="Pengdi Zhang">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pengdi Zhang</title>
+  <meta name="author" content="Pengdi Zhang">
+  <meta name="description" content="Pengdi Zhang — Ph.D. researcher in fiber-optic sensing, ultrasonic guided waves, and machine learning for structural health monitoring. R&D 100 Award (2024).">
+  <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text: #1f2328;
+      --muted: #656d76;
+      --link: #1a5fb4;
+      --line: #e6e8eb;
+      --bg: #ffffff;
+      --card: #f6f8fa;
+      --tag: #eaf2fd;
+    }
+    @media (prefers-color-scheme: dark) {
       :root {
-        /* New color palette */
-        --primary: #3a6ea5;
-        --primary-dark: #004e8c;
-        --primary-light: #6a9ed4;
-        --secondary: #ff6b35;
-        --accent: #f7c59f;
-        --light-bg: #f0f6ff;
-        --white: #ffffff;
-        --dark-text: #2d3142;
-        --light-text: #4f5d75;
-        --highlight: #ffe0b5;
+        --text: #e6edf3; --muted: #9198a1; --link: #6cb0ff;
+        --line: #30363d; --bg: #0d1117; --card: #161b22; --tag: #14263f;
       }
-      
-      body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
-        color: var(--dark-text);
-        background-color: var(--light-bg);
-        line-height: 1.6;
-        background-image: linear-gradient(to bottom, var(--light-bg), #ffffff);
-      }
-      
-      .container {
-        max-width: 1000px;
-        margin: 40px auto;
-        padding: 30px;
-        background: var(--white);
-        box-shadow: 0 10px 30px rgba(58, 110, 165, 0.15);
-        border-radius: 12px;
-        border-top: 5px solid var(--primary);
-      }
-      
-      .header {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 30px;
-        flex-wrap: wrap;
-        max-width: 1000px;
-        margin: 40px auto;
-        padding: 30px;
-        background: var(--white);
-        box-shadow: 0 10px 30px rgba(58, 110, 165, 0.15);
-        border-radius: 12px;
-        border-top: 5px solid var(--primary);
-      }
-      
-      @media (max-width: 768px) {
-        .header {
-          flex-direction: column-reverse;
-        }
-      }
-      
-      .profile-info {
-        flex: 3;
-        padding: 20px;
-      }
-      
-      .profile-photo {
-        flex: 1;
-        padding: 20px;
-        text-align: center;
-      }
-      
-      .profile-photo img {
-        width: 100%;
-        max-width: 250px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid var(--primary);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      
-      .profile-photo img:hover {
-        transform: scale(1.05);
-        box-shadow: 0 10px 20px rgba(58, 110, 165, 0.25);
-      }
-      
-      .name {
-        font-size: 2.5em;
-        color: var(--primary);
-        margin-bottom: 15px;
-        text-align: center;
-      }
-      
-      .social-links {
-        text-align: center;
-        margin: 20px 0;
-      }
-      
-      .social-links a {
-        display: inline-block;
-        margin: 0 10px;
-        color: var(--primary);
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s;
-        padding: 5px 12px;
-        border-radius: 4px;
-        background-color: rgba(58, 110, 165, 0.1);
-      }
-      
-      .social-links a:hover {
-        color: var(--primary-dark);
-        background-color: rgba(58, 110, 165, 0.2);
-      }
-      
-      .section-title {
-        color: var(--primary);
-        border-bottom: 2px solid #e1e8ed;
-        padding-bottom: 12px;
-        margin-top: 40px;
-        position: relative;
-        font-size: 2em;
-        text-align: center;
-      }
-      
-      .section-title:after {
-        content: "";
-        position: absolute;
-        width: 100px;
-        height: 4px;
-        background-color: var(--secondary);
-        bottom: -2px;
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: 2px;
-      }
-      
-      .research-intro {
-        background-color: var(--light-bg);
-        padding: 25px;
-        border-left: 5px solid var(--primary);
-        margin: 30px 0;
-        border-radius: 0 12px 12px 0;
-        box-shadow: 0 5px 15px rgba(58, 110, 165, 0.1);
-      }
-      
-      .highlight {
-        background-color: var(--highlight);
-        padding: 0 3px;
-        border-radius: 3px;
-      }
-      
-      .research-item {
-        display: flex;
-        margin: 30px 0;
-        border-radius: 12px;
-        padding: 20px;
-        transition: all 0.3s ease;
-        background-color: var(--light-bg);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        border-left: 4px solid var(--primary);
-      }
-      
-      .research-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 30px rgba(58, 110, 165, 0.15);
-      }
-      
-      .research-image {
-        flex: 1;
-        padding-right: 25px;
-      }
-      
-      .research-image img {
-        border-radius: 8px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-        width: 100%;
-      }
-      
-      .research-image img:hover {
-        transform: scale(1.05);
-      }
-      
-      .research-content {
-        flex: 3;
-      }
-      
-      .papertitle {
-        font-size: 1.3em;
-        color: var(--primary);
-        font-weight: bold;
-        position: relative;
-        display: inline-block;
-        transition: color 0.3s ease;
-      }
-      
-      .papertitle:after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -2px;
-        left: 0;
-        background-color: var(--secondary);
-        transition: width 0.3s ease;
-      }
-      
-      .papertitle:hover {
-        color: var(--primary-dark);
-      }
-      
-      .papertitle:hover:after {
-        width: 100%;
-      }
-      
-      .colored-box {
-        padding: 18px;
-        border-radius: 8px;
-        color: white;
-        font-weight: bold;
-        text-align: center;
-        box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-        transition: all 0.3s ease;
-        background-image: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
-      }
-      
-      .colored-box:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 20px rgba(0,0,0,0.2);
-      }
-      
-      .colored-box h2 {
-        margin: 0;
-        font-size: 1.2em;
-      }
-      
-      .misc-section {
-        display: flex;
-        margin: 15px 0;
-        align-items: center;
-      }
-      
-      .misc-title {
-        flex: 1;
-        padding-right: 15px;
-      }
-      
-      .misc-content {
-        flex: 4;
-        padding-left: 15px;
-      }
-      
-      .misc-content a {
-        display: block;
-        margin: 8px 0;
-        color: var(--primary);
-        text-decoration: none;
-        transition: all 0.3s ease;
-        padding: 8px;
-        border-radius: 4px;
-      }
-      
-      .misc-content a:hover {
-        background-color: var(--light-bg);
-        padding-left: 15px;
-        color: var(--primary-dark);
-      }
-      
-      /* Slideshow container */
-      .slideshow-container {
-        max-width: 1000px;
-        position: relative;
-        margin: 30px auto;
-        overflow: hidden;
-        border-radius: 12px;
-        box-shadow: 0 15px 30px rgba(58, 110, 165, 0.25);
-        border: 2px solid rgba(58, 110, 165, 0.2);
-      }
-      
-      /* Hide the images by default */
-      .mySlides {
-        display: none;
-        text-align: center;
-        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-        padding: 20px 0;
-        height: 450px;
-      }
-      
-      .mySlides img {
-        max-width: 100%;
-        max-height: 380px;
-        object-fit: contain;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        border-radius: 8px;
-        transition: transform 0.5s ease;
-      }
-      
-      .mySlides:hover img {
-        transform: scale(1.03);
-      }
-      
-      /* Next & previous buttons */
-      .prev, .next {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        width: auto;
-        margin-top: -22px;
-        padding: 16px;
-        color: white;
-        font-weight: bold;
-        font-size: 18px;
-        transition: 0.6s ease;
-        border-radius: 0 3px 3px 0;
-        user-select: none;
-        background-color: rgba(0,0,0,0.3);
-      }
-      
-      /* Position the "next button" to the right */
-      .next {
-        right: 0;
-        border-radius: 3px 0 0 3px;
-      }
-      
-      /* On hover, add a black background color with a little bit see-through */
-      .prev:hover, .next:hover {
-        background-color: rgba(0,0,0,0.8);
-      }
-      
-      /* Caption text */
-      .caption-text {
-        color: white;
-        font-size: 15px;
-        padding: 8px 12px;
-        width: 100%;
-        text-align: center;
-      }
-      
-      /* The dots/bullets/indicators */
-      .dot-container {
-        text-align: center;
-        margin: 10px 0;
-      }
-      
-      .dot {
-        cursor: pointer;
-        height: 12px;
-        width: 12px;
-        margin: 0 6px;
-        background-color: #bbb;
-        border-radius: 50%;
-        display: inline-block;
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
-      }
-      
-      .active, .dot:hover {
-        background-color: var(--secondary);
-        transform: scale(1.2);
-        border-color: rgba(255, 107, 53, 0.3);
-        box-shadow: 0 0 8px rgba(255, 107, 53, 0.5);
-      }
-      
-      /* Fading animation */
-      .fade {
-        animation-name: fade;
-        animation-duration: 1.5s;
-      }
-      
-      @keyframes fade {
-        from {opacity: .4}
-        to {opacity: 1}
-      }
-    </style>
-  </head>
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px; line-height: 1.65;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 0 20px; }
 
-  <body>
-      <!-- Header Section -->
-      <div class="header">
-        <div class="profile-info">
-          <h1 class="name">Pengdi Zhang</h1>
-          <p>
-            Internationally recognized researcher and <a href="https://www.linkedin.com/feed/update/urn:li:activity:7227522732177981440/">R&D 100 Award</a> recipient (2024) for pioneering works in ultrasonic photonics and distributed fiber-optic sensing. Completing Ph.D. at University of Pittsburgh with 2 <a href="https://patentscope.wipo.int/search/en/detail.jsf;jsessionid=645948801168D6075E6DAEE3E32594E2.wapp2nC?docId=WO2024206395&_cid=P22-M2251B-60029-40">patents</a> filed, 10 conference proceeding papers, and 4 conference presentations including an <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13044/130440J/Investigation-of-data-augmentation-techniques-for-ultrasonic-acoustic-fiber-sensing/10.1117/12.3013996.short">invited talk</a>. Available to start in Sept. 2025 without sponsorship. Experienced in machine learning for dimensionality reduction, feature extraction, and predictive modeling using tensor decomposition, neural networks, and Bayesian optimization.
-          </p>
-          <p>
-            Developed innovative guided wave-based NDT systems with various fiber sensors (FBG, SMS, distributed acoustic) for structural health monitoring with high-precision defect characterization. Implemented tensor-based signal processing algorithms enhancing fiber optic sensing system sensitivity. Proficient in Python, MATLAB, embedded C++, ANSYS, and COMSOL with expertise in FEA, CFD, thermal analysis, and digital twin development. Seeking challenging multidisciplinary projects and collaborative opportunities to advance next generation sensing and monitoring technologies.
-          </p>
-          <div class="social-links">
-            <a href="mailto:pengdizhang@gmail.com">Email</a>
-            <a href="data/PengdiZhang Resume.pdf">Resume</a>
-            <a href="data/PengdiZhang_CV.pdf">CV</a>
-            <a href="https://www.linkedin.com/in/pengdi-zhang">LinkedIn</a>
-            <a href="https://scholar.google.com/citations?user=p-A4wygAAAAJ&hl=en&oi=ao">Scholar</a>
-            <!--<a href="https://github.com/dashboard">Github</a>-->
-          </div>
-        </div>
-        <div class="profile-photo">
-          <a href="images/Pengdi_pic.jpg">
-            <img src="images/Pengdi_pic.jpg" alt="profile photo">
-          </a>
-        </div>
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 90%, transparent);
+      backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+    }
+    nav .wrap { display: flex; gap: 22px; justify-content: center; padding-top: 14px; padding-bottom: 14px; flex-wrap: wrap; }
+    nav a { color: var(--muted); font-weight: 500; font-size: 0.95rem; }
+    nav a:hover { color: var(--text); text-decoration: none; }
+
+    /* Hero */
+    .hero { padding: 40px 0 0; }
+    .visual { display: grid; grid-template-columns: 180px 1fr; gap: 14px; height: 185px; }
+    .visual .photo, .visual .scene { border-radius: 18px; overflow: hidden; position: relative; background: #03060c; }
+    .visual .photo { box-shadow: 0 8px 28px rgba(0,0,0,.14); }
+    .visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .visual .photo img { object-position: 50% 18%; }
+    .visual .scene img { object-position: 75% 50%; }
+    .visual .scene::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(3,6,12,.75), transparent 45%); }
+    .visual .scene span { position: absolute; left: 18px; bottom: 14px; z-index: 1; color: #e8eefc; font-size: 0.82rem; letter-spacing: .04em; font-weight: 500; }
+    .intro { padding-top: 26px; }
+    h1 { font-size: 2.6rem; line-height: 1.1; margin: 0 0 10px; letter-spacing: -0.03em; }
+    .tagline { font-size: 1.08rem; margin: 0 0 8px; }
+    .where { color: var(--muted); font-size: 0.95rem; margin: 0; }
+    .links { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 0; }
+    .links a { border: 1px solid var(--line); border-radius: 8px; padding: 5px 14px; font-size: 0.92rem; font-weight: 500; color: var(--text); }
+    .links a:hover { background: var(--card); text-decoration: none; }
+    @media (max-width: 640px) {
+      .visual { grid-template-columns: 110px 1fr; height: 150px; gap: 10px; }
+      .visual .photo, .visual .scene { border-radius: 14px; }
+      .visual .scene span { left: 12px; bottom: 10px; font-size: 0.7rem; }
+      h1 { font-size: 2.1rem; }
+    }
+
+    /* Sections */
+    section { padding-top: 40px; }
+    h2 { font-size: 1.45rem; margin: 0 0 14px; letter-spacing: -0.01em; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+    p { margin: 0 0 14px; }
+    .badge {
+      display: inline-block; background: var(--tag); color: var(--link);
+      border-radius: 6px; padding: 0 8px; font-size: 0.85rem; font-weight: 600;
+    }
+
+    /* Stats */
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 22px 0 0; }
+    .stat { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; text-align: center; }
+    .stat b { display: block; font-size: 1.5rem; line-height: 1.2; }
+    .stat span { color: var(--muted); font-size: 0.85rem; }
+
+    /* News */
+    ul.news { list-style: none; padding: 0; margin: 0; }
+    ul.news li { display: flex; gap: 14px; padding: 6px 0; }
+    ul.news .date { flex: 0 0 78px; color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; padding-top: 1px; }
+
+    /* Skills */
+    .skills { display: grid; grid-template-columns: 150px 1fr; gap: 8px 16px; margin: 0; }
+    .skills dt { font-weight: 600; }
+    .skills dd { margin: 0; color: var(--muted); }
+    @media (max-width: 560px) { .skills { grid-template-columns: 1fr; gap: 0; } .skills dd { margin-bottom: 10px; } }
+
+    /* Gallery */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+    .gallery figure { margin: 0; }
+    .gallery img { width: 100%; aspect-ratio: 4/3; object-fit: contain; border-radius: 10px; border: 1px solid var(--line); background: #fff; }
+    .gallery figcaption { color: var(--muted); font-size: 0.88rem; text-align: center; margin-top: 6px; }
+
+    /* Publications */
+    .pub { display: flex; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .pub:last-child { border-bottom: 0; }
+    .pub .thumb { flex: 0 0 200px; }
+    .pub .thumb img { width: 100%; border-radius: 8px; border: 1px solid var(--line); background: #fff; }
+    .pub .title { font-weight: 600; display: block; margin-bottom: 4px; line-height: 1.4; }
+    .pub .authors { font-size: 0.92rem; }
+    .pub .venue { color: var(--muted); font-size: 0.92rem; font-style: italic; }
+    .pub .abs { font-size: 0.92rem; color: var(--muted); margin: 8px 0 0; }
+    @media (max-width: 640px) { .pub { flex-direction: column; } .pub .thumb { flex-basis: auto; max-width: 320px; } }
+
+    footer { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 50px 0 40px; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#about">About</a>
+    <a href="#news">Highlights</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#gallery">Gallery</a>
+    <a href="data/PengdiZhang_CV.pdf">CV</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <header class="hero" id="about">
+    <div class="visual">
+      <a class="photo" href="images/Pengdi_pic.jpg"><img src="images/Pengdi_pic.jpg" alt="Pengdi Zhang"></a>
+      <div class="scene">
+        <img src="images/banner.png" alt="Guided-wave simulation on a pipe and a distributed-sensing strain field">
+        <span>Ultrasonic guided waves · Distributed fiber sensing</span>
       </div>
-
-      <div class="container">
-        <!-- Photo Carousel -->
-        <h2 class="section-title">Research Gallery</h2>
-        <div class="slideshow-container">
-          <div class="mySlides fade">
-            <img src="images/Picture1.jpg" alt="Research Image 1">
-            <div class="caption-text">Fiber Optic Sensing System</div>
-          </div>
-          
-          <div class="mySlides fade">
-            <img src="images/RD100.jpg" alt="Research Image 2">
-            <div class="caption-text">R&D 100 Award of 2024</div>
-          </div>
-  
-          <div class="mySlides fade">
-            <img src="images/sensorsys.png" alt="Research Image 3">
-            <div class="caption-text">Structural Health Monitoring System</div>
-          </div>
-          
-          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
-        
-        <div class="dot-container">
-          <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
-      
-        <!-- Research Section -->
-        <h2 class="section-title">Research</h2>
-        <div class="research-intro">
-          <p>
-            I'm interested in Finite Element Analysis (FEA), thermal analysis, and Computational Fluid Dynamics (CFD), as well as digital twin system development. Most of my research is about inferring the combination of optical fiber sensing and structural-acoustic detection. Some projects are <span class="highlight">highlighted</span>.
-          </p>
-        </div>
-      
-        <!-- Research Items -->
-        <div class="research-item">
-          <div class="research-image">
-            <img src="images/Functionalfigure.png" alt="Research project">
-          </div>
-          <div class="research-content">
-            <a href="https://www.mdpi.com/1424-8220/23/12/5410">
-              <span class="papertitle">Quasi-Distributed Fiber Sensor-Based Approach for Pipeline Health Monitoring: Generating and Analyzing Physics-Based Simulation Datasets for Classification</span>
-            </a>
-            <br>
-            <strong>Pengdi Zhang</strong>, Abhishek Venketeswaran, Ruishu F. Wright, Nageswara Lalam, Enrico Sarcinelli and Paul R. Ohodnicki
-            <br>
-            <em>Sensors</em>, 2023
-            <br>
-            <p>
-            A framework for pipeline damage detection that transforms simulated ultrasonic guided wave data into distributed and quasi-distributed acoustic sensing responses, creating robust datasets for classifying pipeline events while examining sensing system performance under varying noise conditions, as demonstrated in key figures showing signal propagation in time-space plots with and without noise.
-            </p>
-          </div>
-        </div>
-
-        <div class="research-item">
-          <div class="research-image">
-            <img src="images/Nagesh.png" alt="Research project">
-          </div>
-          <div class="research-content">
-            <a href="https://ieeexplore.ieee.org/document/10908968">
-              <span class="papertitle">Deep Neural Network Assisted Distributed Strain and Temperature Fiber Sensor System for Natural Gas Pipeline Monitoring</span>
-            </a>
-            <br>
-            Nageswara Lalam, Sandeep Bukka, <strong>Pengdi Zhang</strong>
-            <br>
-            <em>IEEE Xplore</em>, 2024
-            <br>
-            <p>
-              A natural gas pipeline integrity monitoring system using double Brillouin peak sensing fiber with BOTDA technique, demonstrating successful distributed temperature and pressure measurements through laboratory and pilot-scale tests, while implementing a probabilistic deep neural network for rapid analysis and validating results against FEM models.
-            </p>
-          </div>
-        </div>
-        
-        <div class="research-item">
-          <div class="research-image">
-            <img src="images/softicon.png" alt="Research project">
-          </div>
-          <div class="research-content">
-            <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12532/125320C/Machine-learning-data-analytics-based-on-distributed-fiber-sensors-for/10.1117/12.2663225.short?tab=ArticleLink">
-              <span class="papertitle">Ultrasonic Wave Propagation Simulation Tool Development</span>
-            </a>
-            <br>
-            <strong>Pengdi Zhang</strong>, Abhishek Venketeswaran
-            <br>
-            <br>
-            <p>
-              Novel tensor decomposition algorithms that significantly improve sensitivity and noise rejection in distributed fiber optic sensing systems for structural health monitoring applications.
-            </p>
-          </div>
-        </div>
-<!---Miscellanea Section
-        <h2 class="section-title">Miscellanea</h2>
-        
-        <div class="misc-section">
-          <div class="misc-title">
-            <div class="colored-box" style="background-color: var(--primary);">
-              <h2>Publications</h2>
-            </div>
-          </div>
-          <div class="misc-content">
-            <a href="#">Distributed Acoustic Sensing for Infrastructure Monitoring</a>
-            <a href="#">Machine Learning Approaches to Fiber Optic Data Analysis</a>
-            <a href="#">Novel FBG Sensor Designs for Extreme Environments</a>
-            <a href="#">Digital Twin Development for Predictive Maintenance</a>
-          </div>
-        </div>
-        
-        <div class="misc-section">
-          <div class="misc-title">
-            <div class="colored-box" style="background-color: var(--primary-light);">
-              <h2>Presentations</h2>
-            </div>
-          </div>
-          <div class="misc-content">
-            <a href="#">Invited Talk: Advances in Distributed Fiber Optic Sensing, SPIE 2024</a>
-            <a href="#">International Conference on Photonics and Optoelectronics, 2023</a>
-            <a href="#">IEEE Sensors Conference, 2022</a>
-            <a href="#">Optical Fiber Sensors Workshop, 2021</a>
-          </div>
-        </div>
-        
-        <div class="misc-section">
-          <div class="misc-title">
-            <div class="colored-box" style="background-color: var(--secondary);">
-              <h2>Projects</h2>
-            </div>
-          </div>
-          <div class="misc-content">
-            <a href="#">R&D 100 Award: Ultra-Sensitive Distributed Fiber Optic Sensing System</a>
-            <a href="#">Pipeline Integrity Monitoring System</a>
-            <a href="#">Bridge Health Monitoring Platform</a>
-            <a href="#">Machine Learning Toolkit for Sensor Data Analysis</a>
-          </div>
-        </div>
-        
-        <div class="misc-section">
-          <div class="misc-title">
-            <div class="colored-box" style="background-color: var(--primary-dark);">
-              <h2>Skills</h2>
-            </div>
-          </div>
-          <div class="misc-content">
-            <a href="#">Fiber Optic Sensing: FBG, SMS, Distributed Acoustic Sensing</a>
-            <a href="#">Software: Python, MATLAB, C++, ANSYS, COMSOL</a>
-            <a href="#">Simulation: FEA, CFD, Thermal Analysis, Digital Twin Development</a>
-            <a href="#">Machine Learning: Neural Networks, Tensor Methods, Bayesian Optimization</a>
-          </div>
-        </div>
+    </div>
+    <div class="intro">
+      <h1>Pengdi (Penn) Zhang</h1>
+      <p class="tagline">Computational Scientist at Leidos · Ph.D. in Mechanical Engineering, University of Pittsburgh</p>
+      <p class="where">AI for physics &amp; predictive maintenance · Fiber-optic sensing · Structural health monitoring</p>
+      <div class="links">
+        <a href="mailto:pengdizhang@gmail.com">Email</a>
+        <a href="data/PengdiZhang%20Resume.pdf">Resume</a>
+        <a href="data/PengdiZhang_CV.pdf">CV</a>
+        <a href="https://scholar.google.com/citations?user=p-A4wygAAAAJ&hl=en&oi=ao">Google Scholar</a>
+        <a href="https://www.linkedin.com/in/pengdi-zhang">LinkedIn</a>
       </div>
--->       
-    <script>
-      let slideIndex = 1;
-      showSlides(slideIndex);
-      
-      // Next/previous controls
-      function plusSlides(n) {
-        showSlides(slideIndex += n);
-      }
-      
-      // Thumbnail image controls
-      function currentSlide(n) {
-        showSlides(slideIndex = n);
-      }
-      
-      function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
-      }
-      
-      // Auto slideshow
-      let autoSlide = setInterval(() => {
-        plusSlides(1);
-      }, 5000);
-      
-      // Pause slideshow when user interacts with controls
-      let controls = document.querySelectorAll('.prev, .next, .dot');
-      controls.forEach(control => {
-        control.addEventListener('click', () => {
-          clearInterval(autoSlide);
-          autoSlide = setInterval(() => {
-            plusSlides(1);
-          }, 5000);
-        });
-      });
-    </script>
-  </body>
+    </div>
+  </header>
+
+  <section style="padding-top:28px">
+    <p>
+      I'm a computational scientist at Leidos with a Ph.D. in Mechanical Engineering from the University of Pittsburgh, and an
+      <a href="https://www.linkedin.com/feed/update/urn:li:activity:7227522732177981440/">R&amp;D 100 Award</a>
+      recipient (2024) for pioneering work in ultrasonic photonics and distributed fiber-optic sensing.
+      I build guided-wave NDT systems with fiber sensors (FBG, SMS, distributed acoustic) for structural
+      health monitoring, and develop tensor-based signal processing and machine-learning methods that
+      improve sensitivity and defect characterization.
+    </p>
+    <p>
+      I'm seeking challenging multidisciplinary projects and collaborations that advance
+      next-generation sensing and monitoring technologies.
+    </p>
+    <div class="stats">
+      <div class="stat"><b>2</b><span>patents filed</span></div>
+      <div class="stat"><b>10</b><span>conference papers</span></div>
+      <div class="stat"><b>4</b><span>conference talks</span></div>
+      <div class="stat"><b>2024</b><span>R&amp;D 100 Award</span></div>
+    </div>
+  </section>
+
+  <section id="news">
+    <h2>Highlights</h2>
+    <ul class="news">
+      <li><span class="date">2024</span><span>🏆 Received the <a href="https://www.linkedin.com/feed/update/urn:li:activity:7227522732177981440/">R&amp;D 100 Award</a> for ultrasonic photonics and distributed fiber-optic sensing.</span></li>
+      <li><span class="date">2024</span><span>🎤 Invited talk at SPIE: <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13044/130440J/Investigation-of-data-augmentation-techniques-for-ultrasonic-acoustic-fiber-sensing/10.1117/12.3013996.short">Data augmentation techniques for ultrasonic acoustic fiber sensing</a>.</span></li>
+      <li><span class="date">2024</span><span>📄 <a href="https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2024206395">Patent application</a> published (WIPO WO2024206395).</span></li>
+      <li><span class="date">2024</span><span>📘 Paper on deep-neural-network-assisted distributed sensing for natural gas pipelines on <a href="https://ieeexplore.ieee.org/document/10908968">IEEE Xplore</a>.</span></li>
+      <li><span class="date">2023</span><span>📘 Paper on quasi-distributed fiber sensing for pipeline health monitoring in <a href="https://www.mdpi.com/1424-8220/23/12/5410"><em>Sensors</em></a>.</span></li>
+    </ul>
+  </section>
+
+  <section id="research">
+    <h2>Research</h2>
+    <p>
+      I'm interested in finite element analysis (FEA), thermal analysis, computational fluid dynamics (CFD),
+      and digital twin development. Most of my research combines optical fiber sensing with
+      structural-acoustic detection.
+    </p>
+    <dl class="skills">
+      <dt>Sensing</dt><dd>FBG, SMS, distributed acoustic sensing, BOTDA</dd>
+      <dt>Machine learning</dt><dd>Tensor decomposition, neural networks, Bayesian optimization, dimensionality reduction</dd>
+      <dt>Simulation</dt><dd>FEA, CFD, thermal analysis, digital twins</dd>
+      <dt>Tools</dt><dd>Python, MATLAB, embedded C++, ANSYS, COMSOL</dd>
+    </dl>
+  </section>
+
+  <section id="publications">
+    <h2>Selected Publications</h2>
+
+    <article class="pub">
+      <div class="thumb"><img src="images/Functionalfigure.png" alt="Pipeline monitoring simulation figure" loading="lazy"></div>
+      <div>
+        <a class="title" href="https://www.mdpi.com/1424-8220/23/12/5410">Quasi-Distributed Fiber Sensor-Based Approach for Pipeline Health Monitoring: Generating and Analyzing Physics-Based Simulation Datasets for Classification</a>
+        <div class="authors"><strong>Pengdi Zhang</strong>, Abhishek Venketeswaran, Ruishu F. Wright, Nageswara Lalam, Enrico Sarcinelli, Paul R. Ohodnicki</div>
+        <div class="venue">Sensors, 2023</div>
+        <p class="abs">A framework for pipeline damage detection that converts simulated ultrasonic guided-wave data into distributed and quasi-distributed acoustic sensing responses, producing robust datasets for classifying pipeline events under varying noise conditions.</p>
+      </div>
+    </article>
+
+    <article class="pub">
+      <div class="thumb"><img src="images/Nagesh.png" alt="Pipeline sensing system figure" loading="lazy"></div>
+      <div>
+        <a class="title" href="https://ieeexplore.ieee.org/document/10908968">Deep Neural Network Assisted Distributed Strain and Temperature Fiber Sensor System for Natural Gas Pipeline Monitoring</a>
+        <div class="authors">Nageswara Lalam, Sandeep Bukka, <strong>Pengdi Zhang</strong></div>
+        <div class="venue">IEEE Xplore, 2024</div>
+        <p class="abs">A natural gas pipeline integrity monitoring system using double-Brillouin-peak sensing fiber with BOTDA, demonstrating distributed temperature and pressure measurements in lab and pilot-scale tests, with a probabilistic deep neural network for rapid analysis validated against FEM models.</p>
+      </div>
+    </article>
+
+    <article class="pub">
+      <div class="thumb"><img src="images/softicon.png" alt="Ultrasonic simulation tool" loading="lazy"></div>
+      <div>
+        <a class="title" href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12532/125320C/Machine-learning-data-analytics-based-on-distributed-fiber-sensors-for/10.1117/12.2663225.short?tab=ArticleLink">Ultrasonic Wave Propagation Simulation Tool Development</a>
+        <div class="authors"><strong>Pengdi Zhang</strong>, Abhishek Venketeswaran</div>
+        <p class="abs">Novel tensor decomposition algorithms that significantly improve sensitivity and noise rejection in distributed fiber-optic sensing systems for structural health monitoring.</p>
+      </div>
+    </article>
+  </section>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <figure><img src="images/Picture1.jpg" alt="Fiber optic sensing system" loading="lazy"><figcaption>Fiber optic sensing system</figcaption></figure>
+      <figure><img src="images/RD100.jpg" alt="R&D 100 Award 2024" loading="lazy"><figcaption>R&amp;D 100 Award, 2024</figcaption></figure>
+      <figure><img src="images/sensorsys.png" alt="Structural health monitoring system" loading="lazy"><figcaption>Structural health monitoring system</figcaption></figure>
+    </div>
+  </section>
+
+  <footer>© <span id="yr">2025</span> Pengdi Zhang</footer>
+</main>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
 </html>
