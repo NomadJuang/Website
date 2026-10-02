@@ -48,20 +48,29 @@
     nav a:hover { color: var(--text); text-decoration: none; }
 
     /* Hero */
-    .banner { width: 100%; display: block; aspect-ratio: 4/1; object-fit: cover; border-radius: 12px; margin-top: 24px; background: #03060c; }
-    .hero { text-align: center; padding: 0 0 8px; }
+    .card-top { margin-top: 20px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--bg); }
+    .banner { width: 100%; display: block; aspect-ratio: 4/1; object-fit: cover; background: #03060c; }
+    .hero { padding: 0 28px 24px; }
+    .hero .avatar-link { display: inline-block; margin-top: -78px; position: relative; }
     .hero img.avatar {
-      width: 170px; height: 170px; border-radius: 50%; object-fit: cover; object-position: 50% 20%; margin-top: 32px;
-      border: 1px solid var(--line); box-shadow: 0 4px 18px rgba(0,0,0,.12);
+      width: 156px; height: 156px; border-radius: 50%; object-fit: cover; object-position: 50% 20%;
+      border: 5px solid var(--bg); display: block; background: var(--card);
     }
-    h1 { font-size: 2.3rem; line-height: 1.2; margin: 20px 0 4px; letter-spacing: -0.02em; }
-    .tagline { color: var(--muted); margin: 0; }
-    .links { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 22px 0 0; }
+    .hero-grid { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: 10px; }
+    h1 { font-size: 1.9rem; line-height: 1.25; margin: 0 0 4px; letter-spacing: -0.02em; }
+    .tagline { color: var(--text); margin: 0 0 4px; }
+    .hero-grid > div:first-child { flex: 1 1 340px; min-width: 0; }
+    .where { color: var(--muted); font-size: 0.92rem; margin: 0; }
+    .affil { flex: 0 0 210px; list-style: none; margin: 14px 0 0; padding: 0; font-weight: 600; font-size: 0.95rem; }
+    .affil li { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .affil .dot { width: 34px; height: 34px; border-radius: 8px; background: var(--tag); color: var(--link); display: grid; place-items: center; font-size: 0.8rem; font-weight: 700; }
+    .links { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 0; }
     .links a {
       border: 1px solid var(--line); border-radius: 999px; padding: 5px 15px;
       font-size: 0.92rem; font-weight: 500; color: var(--text);
     }
     .links a:hover { background: var(--card); text-decoration: none; }
+    @media (max-width: 560px) { .hero { padding: 0 18px 20px; } .banner { aspect-ratio: 3/1; } }
 
     /* Sections */
     section { padding-top: 40px; }
@@ -124,24 +133,34 @@
 
 <main class="wrap">
 
-  <img class="banner" src="images/banner.png" alt="Guided-wave simulation on a pipe and a distributed-sensing strain field">
-
-  <header class="hero" id="about">
-    <a href="images/Pengdi_pic.jpg"><img class="avatar" src="images/Pengdi_pic.jpg" alt="Pengdi Zhang"></a>
-    <h1>Pengdi Zhang</h1>
-    <p class="tagline">Ph.D. Researcher · University of Pittsburgh<br>Fiber-optic sensing · Ultrasonic guided waves · Machine learning</p>
-    <div class="links">
-      <a href="mailto:pengdizhang@gmail.com">Email</a>
-      <a href="data/PengdiZhang%20Resume.pdf">Resume</a>
-      <a href="data/PengdiZhang_CV.pdf">CV</a>
-      <a href="https://scholar.google.com/citations?user=p-A4wygAAAAJ&hl=en&oi=ao">Google Scholar</a>
-      <a href="https://www.linkedin.com/in/pengdi-zhang">LinkedIn</a>
-    </div>
-  </header>
+  <div class="card-top">
+    <img class="banner" src="images/banner.png" alt="Guided-wave simulation on a pipe and a distributed-sensing strain field">
+    <header class="hero" id="about">
+      <a class="avatar-link" href="images/Pengdi_pic.jpg"><img class="avatar" src="images/Pengdi_pic.jpg" alt="Pengdi Zhang"></a>
+      <div class="hero-grid">
+        <div>
+          <h1>Pengdi (Penn) Zhang</h1>
+          <p class="tagline">Computational Scientist @ Leidos | Ph.D. in Mechanical Engineering | AI for Physics &amp; Predictive Maintenance</p>
+          <p class="where">Fiber-optic sensing · Ultrasonic guided waves · Machine learning</p>
+          <div class="links">
+            <a href="mailto:pengdizhang@gmail.com">Email</a>
+            <a href="data/PengdiZhang%20Resume.pdf">Resume</a>
+            <a href="data/PengdiZhang_CV.pdf">CV</a>
+            <a href="https://scholar.google.com/citations?user=p-A4wygAAAAJ&hl=en&oi=ao">Google Scholar</a>
+            <a href="https://www.linkedin.com/in/pengdi-zhang">LinkedIn</a>
+          </div>
+        </div>
+        <ul class="affil">
+          <li><span class="dot">L</span>Leidos</li>
+          <li><span class="dot">Pitt</span>University of Pittsburgh</li>
+        </ul>
+      </div>
+    </header>
+  </div>
 
   <section>
     <p>
-      I'm a Ph.D. candidate at the University of Pittsburgh and an
+      I'm a computational scientist at Leidos with a Ph.D. in Mechanical Engineering from the University of Pittsburgh, and an
       <a href="https://www.linkedin.com/feed/update/urn:li:activity:7227522732177981440/">R&amp;D 100 Award</a>
       recipient (2024) for pioneering work in ultrasonic photonics and distributed fiber-optic sensing.
       I build guided-wave NDT systems with fiber sensors (FBG, SMS, distributed acoustic) for structural
