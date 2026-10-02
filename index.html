@@ -48,20 +48,27 @@
     nav a:hover { color: var(--text); text-decoration: none; }
 
     /* Hero */
-    .hero { display: grid; grid-template-columns: 1fr 230px; gap: 40px; align-items: center; padding: 56px 0 8px; }
-    .hero img.avatar { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: 50% 15%; border-radius: 18px; display: block; box-shadow: 0 8px 28px rgba(0,0,0,.14); }
-    h1 { font-size: 2.6rem; line-height: 1.1; margin: 0 0 12px; letter-spacing: -0.03em; }
-    .tagline { font-size: 1.08rem; margin: 0 0 12px; }
-    .where { color: var(--muted); font-size: 0.95rem; margin: 0 0 4px; }
+    .hero { padding: 40px 0 0; }
+    .visual { display: grid; grid-template-columns: 180px 1fr; gap: 14px; height: 185px; }
+    .visual .photo, .visual .scene { border-radius: 18px; overflow: hidden; position: relative; background: #03060c; }
+    .visual .photo { box-shadow: 0 8px 28px rgba(0,0,0,.14); }
+    .visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .visual .photo img { object-position: 50% 18%; }
+    .visual .scene img { object-position: 75% 50%; }
+    .visual .scene::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(3,6,12,.75), transparent 45%); }
+    .visual .scene span { position: absolute; left: 18px; bottom: 14px; z-index: 1; color: #e8eefc; font-size: 0.82rem; letter-spacing: .04em; font-weight: 500; }
+    .intro { padding-top: 26px; }
+    h1 { font-size: 2.6rem; line-height: 1.1; margin: 0 0 10px; letter-spacing: -0.03em; }
+    .tagline { font-size: 1.08rem; margin: 0 0 8px; }
+    .where { color: var(--muted); font-size: 0.95rem; margin: 0; }
     .links { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 0; }
     .links a { border: 1px solid var(--line); border-radius: 8px; padding: 5px 14px; font-size: 0.92rem; font-weight: 500; color: var(--text); }
     .links a:hover { background: var(--card); text-decoration: none; }
-    .banner { width: 100%; display: block; aspect-ratio: 4/1; object-fit: cover; border-radius: 14px; margin-top: 36px; background: #03060c; }
     @media (max-width: 640px) {
-      .hero { grid-template-columns: 1fr; gap: 24px; padding-top: 32px; }
-      .hero img.avatar { max-width: 200px; aspect-ratio: 1; border-radius: 50%; order: -1; }
+      .visual { grid-template-columns: 110px 1fr; height: 150px; gap: 10px; }
+      .visual .photo, .visual .scene { border-radius: 14px; }
+      .visual .scene span { left: 12px; bottom: 10px; font-size: 0.7rem; }
       h1 { font-size: 2.1rem; }
-      .banner { aspect-ratio: 3/1; }
     }
 
     /* Sections */
@@ -126,10 +133,17 @@
 <main class="wrap">
 
   <header class="hero" id="about">
-    <div>
+    <div class="visual">
+      <a class="photo" href="images/Pengdi_pic.jpg"><img src="images/Pengdi_pic.jpg" alt="Pengdi Zhang"></a>
+      <div class="scene">
+        <img src="images/banner.png" alt="Guided-wave simulation on a pipe and a distributed-sensing strain field">
+        <span>Ultrasonic guided waves · Distributed fiber sensing</span>
+      </div>
+    </div>
+    <div class="intro">
       <h1>Pengdi (Penn) Zhang</h1>
-      <p class="tagline">Computational Scientist at Leidos<br>Ph.D. in Mechanical Engineering, University of Pittsburgh</p>
-      <p class="where">AI for physics &amp; predictive maintenance · Fiber-optic sensing · Ultrasonic guided waves</p>
+      <p class="tagline">Computational Scientist at Leidos · Ph.D. in Mechanical Engineering, University of Pittsburgh</p>
+      <p class="where">AI for physics &amp; predictive maintenance · Fiber-optic sensing · Structural health monitoring</p>
       <div class="links">
         <a href="mailto:pengdizhang@gmail.com">Email</a>
         <a href="data/PengdiZhang%20Resume.pdf">Resume</a>
@@ -138,10 +152,7 @@
         <a href="https://www.linkedin.com/in/pengdi-zhang">LinkedIn</a>
       </div>
     </div>
-    <a href="images/Pengdi_pic.jpg"><img class="avatar" src="images/Pengdi_pic.jpg" alt="Pengdi Zhang"></a>
   </header>
-
-  <img class="banner" src="images/banner.png" alt="Guided-wave simulation on a pipe and a distributed-sensing strain field">
 
   <section style="padding-top:28px">
     <p>
