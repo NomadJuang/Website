@@ -102,11 +102,20 @@
     .pub .abs { font-size: 0.92rem; color: var(--muted); margin: 12px 0 0; }
     @media (max-width: 640px) {
       .pub { flex-direction: column; } .pub .thumb { flex-basis: auto; max-width: 320px; }
-      .visual { grid-template-columns: 110px 1fr; height: 150px; }
-      .visual .scene span { left: 10px; bottom: 8px; font-size: 0.7rem; }
+      nav { position: static; }
+      nav .wrap { justify-content: flex-start; gap: 20px; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+      nav .wrap::-webkit-scrollbar { display: none; }
+      nav a { font-size: 0.8rem; }
+      .hero { padding-top: 28px; }
+      .visual { grid-template-columns: 1fr; height: auto; gap: 14px; }
+      .visual .photo { width: 130px; aspect-ratio: 4/5; }
+      .visual .scene { aspect-ratio: 3.2/1; }
+      .visual .scene img { object-position: 100% 50%; -webkit-mask-image: none; mask-image: none; }
+      .visual .scene span { display: none; }
+      .intro { padding-top: 32px; }
       h1 { font-size: 2.6rem; }
       h2 { font-size: 1.9rem; }
-      nav .wrap { justify-content: center; gap: 18px; }
+      section { padding-top: 56px; }
     }
 
     footer { color: var(--muted); font-size: 0.82rem; letter-spacing: .12em; text-transform: uppercase; padding: 90px 0 48px; }
